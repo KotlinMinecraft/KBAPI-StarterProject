@@ -8,6 +8,15 @@ The starter comes with the following KotlinBukkitAPI modules by default.
 
 Any other modules needed, just undocument at `build.gradle.kts` at dependencies section.
 
+# Starting a new project
+
+On Windows, open Git Bash, on Mac or Linux just open a terminal.
+Run the following command bellow changing the `PROJECT_NAME` to your project name.
+
+```shell script
+PROJECT_NAME="NameOfYourProject" && git clone https://github.com/KotlinMinecraft/KBAPI-StarterProject.git $PROJECT_NAME && rm -rf $PROJECT_NAME/.git && rm $PROJECT_NAME/README.md
+```
+
 # How to configure it
 
 ### Project Name 

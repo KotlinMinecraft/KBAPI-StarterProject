@@ -11,7 +11,7 @@ val spigot_version = "1.8.8-R0.1-SNAPSHOT"
 val kotlinbukkitapi_version = "0.1.0-SNAPSHOT"
 
 //val hikaricp_version = "3.4.1" // optional dependency
-//val exposed_version = "0.20.1" // optional dependency
+//val exposed_version = "0.21.1" // optional dependency
 
 repositories {
     jcenter()
@@ -42,8 +42,8 @@ dependencies {
 
     // exposed
     //implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
+    //implementation("org.jetbrains.exposed:exposed-java-jdbc:$exposed_version")
     //implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
-    //implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
 }
 
 bukkit {

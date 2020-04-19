@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.3.71"
     id("net.minecrell.plugin-yml.bukkit") version "0.3.0"
     id("com.github.johnrengelman.shadow") version "5.2.0"
+    kotlin("plugin.serialization") version "1.3.71"
 }
 
 group = "com.yourname"
@@ -25,15 +26,18 @@ repositories {
 }
 
 dependencies {
+    val changing = Action<ExternalModuleDependency> { isChanging = true }
+
     compileOnly(kotlin("stdlib-jdk8")) // embedded in KotlinBukkitAPI
 
     compileOnly("org.spigotmc:spigot-api:$spigot_version")
 
     // KotlinBukkitAPI
-    compileOnly("br.com.devsrsouza.kotlinbukkitapi:core:$kotlinbukkitapi_version")
-    compileOnly("br.com.devsrsouza.kotlinbukkitapi:architecture:$kotlinbukkitapi_version")
-    //compileOnly("br.com.devsrsouza.kotlinbukkitapi:exposed:$kotlinbukkitapi_version")
-    //compileOnly("br.com.devsrsouza.kotlinbukkitapi:plugins:$kotlinbukkitapi_version")
+    compileOnly("br.com.devsrsouza.kotlinbukkitapi:core:$kotlinbukkitapi_version", changing)
+    compileOnly("br.com.devsrsouza.kotlinbukkitapi:architecture:$kotlinbukkitapi_version", changing)
+    compileOnly("br.com.devsrsouza.kotlinbukkitapi:serialization:$kotlinbukkitapi_version", changing)
+    //compileOnly("br.com.devsrsouza.kotlinbukkitapi:exposed:$kotlinbukkitapi_version", changing)
+    //compileOnly("br.com.devsrsouza.kotlinbukkitapi:plugins:$kotlinbukkitapi_version", changing)
 
     // OPTIONAL EXTRA DEPENDENCIES
 
@@ -65,4 +69,8 @@ tasks {
     shadowJar {
         classifier = null
     }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor(120, "seconds")
 }

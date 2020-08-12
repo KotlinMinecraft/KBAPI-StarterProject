@@ -23,6 +23,11 @@ repositories {
 
     // KotlinBukkitAPI
     maven { url = uri("http://nexus.devsrsouza.com.br/repository/maven-public/")}
+    
+    // Backup KotlinBukkitAPI repoistory, in case the above one is not working
+    // maven("https://oss.jfrog.org/oss-snapshot-local/")
+    // maven("http://nexus.okkero.com/repository/maven-releases/") //skedule
+    // maven("https://repo.codemc.org/repository/maven-public") //bstats
 }
 
 dependencies {
